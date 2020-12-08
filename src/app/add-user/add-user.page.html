@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Add User</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div>
+    <img src='https://zaibmust.com/wp-content/uploads/winterland-1.png' />
+  </div>
+</ion-header>
+
+<ion-content>
+  <form class='print' [formGroup]='addUserForm'>
+    <ion-item *ngFor='let form of addUserForm.controls | keyvalue: asIsOrder'>
+      <ion-label position="stacked" class="ion-padding-bottom label">
+        {{addUserModel[form.key]}}
+      </ion-label>
+      <ion-input *ngIf="form.key !== 'dateOfEntry'; else datePicker" 
+        color='primary' 
+        maxlength={{addUserFormConfig[form.key].maxlength}}
+        minlength={{addUserFormConfig[form.key].minlength}}
+        inputmode={{addUserFormConfig[form.key].type}}
+        formControlName={{form.key}}>
+      </ion-input>
+      <ng-template #datePicker>
+        <ion-datetime formControlName={{form.key}} display-timezone="utc"></ion-datetime>
+      </ng-template>
+
+      <ion-icon name={{addUserFormConfig[form.key].icon}} slot='start' align-self-center> </ion-icon>
+
+    </ion-item>
+
+    <ion-button class='submit-btn' expand="block" (click)='submit()'>SUBMIT</ion-button>
+  </form>
+</ion-content>

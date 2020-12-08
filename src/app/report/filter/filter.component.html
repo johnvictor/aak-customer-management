@@ -1,0 +1,44 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Filter</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-label>
+        <h2>Gollum</h2>
+        <p>Name</p>
+      </ion-label>
+      <ion-button color="light" slot="end">Clear</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      <ion-label>
+        <h2>Frodo</h2>
+        <p>Location</p>
+      </ion-label>
+      <ion-button color="light" slot="end">Clear</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="today-outline" slot="start"></ion-icon>
+      <ion-datetime placeholder='Select month' value="" display-timezone="utc"></ion-datetime>
+      <!-- <ion-label>
+        <p>Month</p>
+      </ion-label> -->
+      <ion-button color="light" slot="end">Clear</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="calendar-outline" slot="start"></ion-icon>
+      <ion-datetime placeholder='Select year' value="" display-timezone="utc"></ion-datetime>
+      <!-- <ion-label>
+        <p>Year</p>
+      </ion-label> -->
+      <ion-button color="light" slot="end">Clear</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

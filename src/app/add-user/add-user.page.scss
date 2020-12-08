@@ -1,0 +1,33 @@
+ion-item {
+    margin: 0 15px;
+}
+
+.submit-btn  {
+    margin: 20px 15px;
+}
+
+ion-item {
+    display: flex;
+    align-items: center;
+}
+
+ion-toolbar {
+    --background: #dea6f7;
+}
+
+ion-content, ion-item, ion-input, ion-label {
+    // --background: #fee6b5;
+}
+
+ion-input {
+    --padding-top: 62px;
+    overflow: visible;
+}
+
+ion-icon {
+    // --margin: 0;
+}
+
+.label {
+    color: #dea6f7;
+}

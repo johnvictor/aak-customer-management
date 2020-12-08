@@ -1,0 +1,60 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.action-buttons {
+  margin: 10px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  font-size: 16px;
+  width: 190px;
+
+  .one {
+    color: #fee6b5;
+  }
+
+  .two {
+    color: #dea6f7;
+  }
+
+  .three {
+    color: #13effb;
+  }
+}
+
+
+ion-content {
+  --background: #fff url('../../assets/images/color-bg.jpg') no-repeat center center / cover;
+}
+
+.vertical-align-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}

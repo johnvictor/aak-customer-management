@@ -1,0 +1,7 @@
+{
+  "name": "aak-customer-management",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Reports</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar debounce="500" animated='true'></ion-searchbar>
+  <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+    <ion-fab-button (click)='presentModal()'>
+      <ion-icon name="filter-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
