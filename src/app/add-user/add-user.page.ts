@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+
+import { UserService } from '../services/user.service';
 import * as AddUserModel from './add-user.model';
 
 @Component({
@@ -13,16 +17,20 @@ export class AddUserPage implements OnInit {
   addUserModel = AddUserModel.FormControlNameMapping;
   addUserFormConfig = AddUserModel.addUserFormConfig;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+    private alertController: AlertController
+  ) { }
 
   ngOnInit() {
     this.addUserForm = this.formBuilder.group({
-      slNo: ['', Validators.required],
-      dateOfEntry: ['', Validators.required],
       customerName: ['', Validators.required],
+      dateOfEntry: ['', Validators.required],
       fatherName: ['', Validators.required],
       contactNo: ['', Validators.required],
-      alternateNo: ['', Validators.required],
+      alternateNo: [''],
       address: ['', Validators.required],
       landmark: ['', Validators.required]
     });
@@ -34,9 +42,27 @@ export class AddUserPage implements OnInit {
 
   submit() {
     this.addUserForm.markAllAsTouched();
-    
     if (this.addUserForm.valid) {
-      
+      this.userService.addUser({...this.addUserForm.value, isActive: true}).then(res => {
+        this.presentAlert(res.id);
+      });
     }
+  }
+
+  async presentAlert(id: string) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Success',
+      subHeader: 'ID: ' + id,
+      message: 'User added successfully',
+      buttons: [{
+        text: 'OK',
+        handler: () => {
+          this.router.navigate(['']);
+        }
+      }]
+    });
+
+    await alert.present();
   }
 }

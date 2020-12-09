@@ -7,8 +7,8 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./filter.component.scss'],
 })
 export class FilterComponent implements OnInit {
-  currentYear : any = (new Date()).getFullYear();
-  date : any = new Date().toISOString();
+  currentYear: any = (new Date()).getFullYear();
+  date: any = new Date().toISOString();
   constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {}
@@ -22,8 +22,8 @@ export class FilterComponent implements OnInit {
   }
 
   yearChange(){
-    alert("hello");
-    //alert(document.getElementById("selectedYear").innerHTML)
+    alert('hello');
+    // alert(document.getElementById("selectedYear").innerHTML)
     alert(new Date(this.date).getFullYear());
   }
 }

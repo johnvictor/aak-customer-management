@@ -30,3 +30,6 @@ npm-debug.log*
 /plugins
 /www
 /android
+/src/environments/firebase.conf.ts
+/.firebaserc
+/firebase.json

@@ -1,5 +1,4 @@
 export enum FormControlNameMapping {
-    slNo = 'Sl No',
     dateOfEntry = 'Date of entry',
     customerName = 'Customer name',
     fatherName = 'Father name',
@@ -10,13 +9,6 @@ export enum FormControlNameMapping {
 }
 
 export const addUserFormConfig = {
-    slNo: {
-        label: 'Sl No',
-        icon: 'reorder-two-outline',
-        type: 'text',
-        minlength: '1',
-        maxlength: '40'
-    },
     dateOfEntry: {
         label: 'Date of Entry',
         icon: 'calendar-outline',

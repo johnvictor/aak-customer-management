@@ -1,45 +1,9 @@
-<ion-card (click)='gotoPay()'>
+<ion-card (click)='gotoPay(user.slNo)' *ngFor='let user of users'>
   <ion-card-header>
     <ion-icon name="airplane-outline"></ion-icon>
-    <ion-card-title>Kumar</ion-card-title>
+    <ion-card-title>{{user.customerName}}</ion-card-title>
     <ion-card-subtitle>
-      9658899966565 - SDGSEQWEWER
-    </ion-card-subtitle>
-  </ion-card-header>
-</ion-card>
-<ion-card (click)='gotoPay()'>
-  <ion-card-header>
-    <ion-icon name="airplane-outline"></ion-icon>
-    <ion-card-title>Kumar</ion-card-title>
-    <ion-card-subtitle>
-      9658899966565 - SDGSEQWEWER
-    </ion-card-subtitle>
-  </ion-card-header>
-</ion-card>
-<ion-card (click)='gotoPay()'>
-  <ion-card-header>
-    <ion-icon name="airplane-outline"></ion-icon>
-    <ion-card-title>Kumar</ion-card-title>
-    <ion-card-subtitle>
-      9658899966565 - SDGSEQWEWER
-    </ion-card-subtitle>
-  </ion-card-header>
-</ion-card>
-<ion-card (click)='gotoPay()'>
-  <ion-card-header>
-    <ion-icon name="airplane-outline"></ion-icon>
-    <ion-card-title>Kumar</ion-card-title>
-    <ion-card-subtitle>
-      9658899966565 - SDGSEQWEWER
-    </ion-card-subtitle>
-  </ion-card-header>
-</ion-card>
-<ion-card (click)='gotoPay()'>
-  <ion-card-header>
-    <ion-icon name="airplane-outline"></ion-icon>
-    <ion-card-title>Kumar</ion-card-title>
-    <ion-card-subtitle>
-      9658899966565 - SDGSEQWEWER
+      {{user.contactNo}} - {{user.slNo}}
     </ion-card-subtitle>
   </ion-card-header>
 </ion-card>

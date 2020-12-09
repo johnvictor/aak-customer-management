@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./report/report.module').then( m => m.ReportPageModule)
   },
   {
-    path: 'add-payment',
+    path: 'add-payment/:id',
     loadChildren: () => import('./add-payment/add-payment.module').then( m => m.AddPaymentPageModule)
   }
 ];

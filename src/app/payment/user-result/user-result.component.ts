@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/users.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-result',
@@ -7,13 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-result.component.scss'],
 })
 export class UserResultComponent implements OnInit {
+  users: User[];
+  constructor(private router: Router, private userService: UserService) { }
 
-  constructor(private router: Router) { }
+  ngOnInit() {
+    this.userService.getUsers().subscribe(res => this.users = res);
+  }
 
-  ngOnInit() {}
-
-  gotoPay() {
-    this.router.navigate(['add-payment']);
+  gotoPay(id: string) {
+    this.router.navigate(['add-payment', id]);
   }
 
 }

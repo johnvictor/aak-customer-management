@@ -31,3 +31,8 @@ ion-icon {
 .label {
     color: #dea6f7;
 }
+
+/* Works - pass "my-custom-class" in cssClass to increase specificity */
+.my-custom-class .alert-wrapper {
+    background: red;
+}

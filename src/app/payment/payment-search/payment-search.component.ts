@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-payment-search',
@@ -6,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment-search.component.scss'],
 })
 export class PaymentSearchComponent implements OnInit {
-
-  constructor() { }
 
   ngOnInit() {}
 
