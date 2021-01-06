@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 import { User } from 'src/app/models/users.model';
+import { LoaderService } from 'src/app/services/loader.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,10 +12,11 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserResultComponent implements OnInit {
   users: User[];
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService, private loader: LoaderService) { }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(res => this.users = res);
+    this.loader.showLoader();
+    this.userService.getUsers().pipe(tap(() => this.loader.hideLoader())).subscribe(res => this.users = res);
   }
 
   gotoPay(id: string) {

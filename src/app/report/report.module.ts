@@ -8,6 +8,7 @@ import { ReportPageRoutingModule } from './report-routing.module';
 
 import { ReportPage } from './report.page';
 import { FilterComponent } from './filter/filter.component';
+import { PaymentHistoryComponent } from './payment-history/payment-history.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { FilterComponent } from './filter/filter.component';
     IonicModule,
     ReportPageRoutingModule
   ],
-  declarations: [ReportPage, FilterComponent]
+  declarations: [ReportPage, FilterComponent, PaymentHistoryComponent]
 })
 export class ReportPageModule {}

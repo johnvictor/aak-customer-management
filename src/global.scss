@@ -28,3 +28,16 @@
 .print {
     color: white;
 }
+
+@font-face {
+    font-family: 'Ovo-Regular';
+    src: url('./assets/fonts/Belgrano-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Ovo-Regular' !important;
+    letter-spacing: .1rem;
+    font-size: 14px;
+}

@@ -1,0 +1,24 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title color='warning'>Payment History</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-card>
+    <ion-list *ngIf="payments.length">
+      <ion-item *ngFor="let payment of payments">
+        <ion-label
+          ><p class='receivedby'>Paid On</p>
+          <h2>{{ payment.paymentDate | date:'MMM dd, yyyy' }}</h2></ion-label
+        >
+        <ion-label
+          ><p class='receivedby'>Received By</p>
+          <h3>{{ payment.receivedBy }}</h3></ion-label
+        >
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>
