@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title color='primary'>Add Payment</ion-title>
+    <ion-title>Add Payment</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -10,24 +10,24 @@
 <ion-content>
   <ion-card [formGroup]='paymentForm'>
     <ion-card-header>
-      <ion-card-subtitle color='secondary'>{{user?.address}}</ion-card-subtitle>
-      <ion-card-title color='success'>{{user?.customerName}}</ion-card-title>
+      <ion-card-subtitle>{{user?.address}}</ion-card-subtitle>
+      <ion-card-title>{{user?.customerName}}</ion-card-title>
     </ion-card-header>
 
     <ion-item>
       <ion-icon name="cash-outline" slot="start"></ion-icon>
-      <ion-label color='secondary'>Rs. 1000</ion-label>
+      <ion-label>Rs. 1000</ion-label>
     </ion-item>
   
     <ion-card-content>
       <ion-item>
-        <ion-label position="stacked" color='secondary'>
+        <ion-label position="stacked">
           Payment date
         </ion-label>
         <ion-datetime  placeholder="Select date" formControlName='paymentDate' display-timezone="utc"></ion-datetime>
       </ion-item>
       <ion-item>
-        <ion-label position="stacked" color='secondary'>
+        <ion-label position="stacked">
           Received by
         </ion-label>
         <ion-select placeholder="Select name" interface='popover' formControlName='receivedBy'>
@@ -38,7 +38,7 @@
           <ion-select-option value='RAJESH'>RAJESH</ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-button expand="block" color="primary" (click)='pay()'>Pay</ion-button>
+      <ion-button expand="block" (click)='pay()'>Pay</ion-button>
 
     </ion-card-content>
   </ion-card>

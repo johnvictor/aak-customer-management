@@ -1,7 +1,30 @@
+@import "../../variables.scss";
+
 ion-button {
     margin-top: 20px;
+    --background: #0071e3;
+    color: $white;
+    font-weight: bold;
 }
 
-ion-content, ion-toolbar {
-    --background: #dea6f7;
+ion-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+ion-card-subtitle {
+    color: $light-blue;
+    font-size: 13px;
+}
+
+ion-card-title {
+    color: $blue;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+ion-label {
+    font-size: 14px;
+    --color: $blue;
 }

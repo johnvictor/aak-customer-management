@@ -1,0 +1,16 @@
+@import "../../../variables.scss";
+
+ion-card-title {
+    color: $blue;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+ion-card-subtitle {
+    font-size: 13px;
+}
+
+.contact {
+    font-size: 13px;
+    color: $orange;
+}

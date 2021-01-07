@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 #container {
   text-align: center;
 
@@ -32,23 +34,24 @@
   letter-spacing: 4px;
   font-size: 16px;
   width: 190px;
+  --background: #0071e3;
 
   .one {
-    color: #fee6b5;
+    color: $white;
   }
 
   .two {
-    color: #dea6f7;
+    color: $white;
   }
 
   .three {
-    color: #13effb;
+    color: $white;
   }
 }
 
 
 ion-content {
-  --background: #ff862f;
+  --background: #000;
 }
 
 .vertical-align-content {

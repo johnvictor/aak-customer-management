@@ -1,0 +1,13 @@
+@import "../../../variables.scss";
+
+.label {
+    font-size: 14px;
+    color: #0071e3;
+}
+
+.submit-btn {
+    font-size: 14px;
+    color: $white;
+    font-weight: bold;
+    --background: #0071e3;
+}

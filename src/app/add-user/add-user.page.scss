@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 ion-item {
     margin: 0 15px;
 }
@@ -6,13 +8,19 @@ ion-item {
     margin: 20px 15px;
 }
 
+ion-title, ion-button {
+    font-size: 14px;
+    font-weight: bold;
+    --background: #0071e3;
+}
+
 ion-item {
     display: flex;
     align-items: center;
 }
 
 ion-toolbar {
-    --background: #dea6f7;
+    --background: #fff;
 }
 
 ion-content, ion-item, ion-input, ion-label {
@@ -29,7 +37,8 @@ ion-icon {
 }
 
 .label {
-    color: #dea6f7;
+    color: $blue;
+    font-size: 14px;
 }
 
 /* Works - pass "my-custom-class" in cssClass to increase specificity */

@@ -17,7 +17,6 @@
         {{addUserModel[form.key]}}
       </ion-label>
       <ion-input *ngIf="form.key !== 'dateOfEntry'; else datePicker" 
-        color='primary' 
         maxlength={{addUserFormConfig[form.key].maxlength}}
         minlength={{addUserFormConfig[form.key].minlength}}
         inputmode={{addUserFormConfig[form.key].type}}
