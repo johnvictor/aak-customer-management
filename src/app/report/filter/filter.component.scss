@@ -1,0 +1,22 @@
+@import "../../../variables.scss";
+
+ion-title {
+  font-weight: bold;
+}
+
+ion-icon {
+  position: relative;
+  top: 4px;
+}
+
+.label {
+  font-size: 14px;
+  --color: #0071e3;
+}
+
+.submit-btn {
+  margin: 20px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  --background: #0071e3;
+}

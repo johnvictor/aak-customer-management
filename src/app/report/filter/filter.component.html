@@ -7,38 +7,40 @@
   </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
-  <ion-list>
+  <ion-list [formGroup]='filterForm'>
     <ion-item>
       <ion-icon name="person-outline" slot="start"></ion-icon>
-      <ion-label>
-        <h2>Gollum</h2>
-        <p>Name</p>
+      <ion-label position="floating" class='label'>
+        Customer Name
       </ion-label>
-      <ion-button color="light" slot="end">Clear</ion-button>
+      <ion-input formControlName='name' inputmode='text'></ion-input>
+      <ion-icon name="trash-outline" (click)="clearField('name')" slot="end"></ion-icon>
     </ion-item>
     <ion-item>
       <ion-icon name="location-outline" slot="start"></ion-icon>
-      <ion-label>
-        <h2>Frodo</h2>
-        <p>Location</p>
+      <ion-label position="floating" class='label'>
+        Location
       </ion-label>
-      <ion-button color="light" slot="end">Clear</ion-button>
+      <ion-input formControlName='location' inputmode='text'></ion-input>
+      <ion-icon name="trash-outline" (click)="clearField('location')" slot="end"></ion-icon>
     </ion-item>
     <ion-item>
       <ion-icon name="today-outline" slot="start"></ion-icon>
-      <ion-datetime placeholder='Select month' value="" display-timezone="utc"></ion-datetime>
-      <!-- <ion-label>
-        <p>Month</p>
-      </ion-label> -->
-      <ion-button color="light" slot="end">Clear</ion-button>
+      <ion-label position="floating" class='label'>
+        Month
+      </ion-label>
+      <ion-datetime formControlName='month' display-format="MMMM" picker-format="MMMM"></ion-datetime>
+      <ion-icon name="trash-outline" slot="end" (click)="clearField('month')"></ion-icon>
     </ion-item>
     <ion-item>
       <ion-icon name="calendar-outline" slot="start"></ion-icon>
-      <ion-datetime placeholder='Select year' value="" display-timezone="utc"></ion-datetime>
-      <!-- <ion-label>
-        <p>Year</p>
-      </ion-label> -->
-      <ion-button color="light" slot="end">Clear</ion-button>
+      <ion-label position="floating" class='label'>
+        Year
+      </ion-label>
+      <ion-datetime formControlName='year' display-format="YYYY" picker-format="YYYY"></ion-datetime>
+      <ion-icon name="trash-outline" slot="end" (click)="clearField('year')"></ion-icon>
     </ion-item>
   </ion-list>
+  <ion-button class='submit-btn' expand="block" (click)='filter()'>Filter</ion-button>
+
 </ion-content>

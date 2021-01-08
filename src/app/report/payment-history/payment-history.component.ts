@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class PaymentHistoryComponent implements OnInit {
   payments = [];
   @Input() userId: string;
+  @Input() customerName: string;
   constructor(
     public modalController: ModalController,
     private userService: UserService,

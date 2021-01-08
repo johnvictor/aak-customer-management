@@ -1,20 +1,26 @@
 @import "../../variables";
 
 h3 {
-    color: $black;
-    font-weight: bold;
+  color: $black;
+  font-weight: bold;
 }
 
 ion-title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .contact {
-    color: $orange;
-    margin-left: 5px;
+  color: $orange;
+  margin-left: 5px;
 }
 
 ion-icon {
-    top: 1px;
-    position: relative;
+  top: 1px;
+  position: relative;
+}
+
+ion-card {
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #e5e5e5;
 }

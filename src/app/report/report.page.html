@@ -8,16 +8,13 @@
 </ion-header>
 
 <ion-content>
-  <!-- <ion-searchbar debounce="500" animated='true'></ion-searchbar>
   <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
     <ion-fab-button (click)='presentModal()'>
       <ion-icon name="filter-outline"></ion-icon>
     </ion-fab-button>
-  </ion-fab> -->
-
-  
+  </ion-fab>
   <ion-card *ngFor='let user of users'>
-    <ion-card-header (click)='openPaymentModal(user.slNo)'>
+    <ion-card-header (click)='openPaymentModal(user)'>
       <ion-card-title><h3>{{user.customerName}}</h3></ion-card-title>
       <ion-card-subtitle>
         <ion-icon name="call-outline"> </ion-icon><span class='contact'>{{user.contactNo}}</span> - {{user.slNo}}
