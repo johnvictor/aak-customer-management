@@ -14,12 +14,12 @@ ion-title {
 }
 
 ion-card-subtitle {
-    color: $light-blue;
+    color: $light-black;
     font-size: 13px;
 }
 
 ion-card-title {
-    color: $blue;
+    color: $black;
     font-weight: bold;
     font-size: 14px;
 }
@@ -27,4 +27,8 @@ ion-card-title {
 ion-label {
     font-size: 14px;
     --color: $blue;
+}
+
+.label {
+    color: $blue;
 }

@@ -13,7 +13,7 @@
 <ion-content>
   <form class='print' [formGroup]='addUserForm'>
     <ion-item *ngFor='let form of addUserForm.controls | keyvalue: asIsOrder'>
-      <ion-label position="stacked" class="ion-padding-bottom label">
+      <ion-label position="floating" class="ion-padding-bottom label">
         {{addUserModel[form.key]}}
       </ion-label>
       <ion-input *ngIf="form.key !== 'dateOfEntry'; else datePicker" 

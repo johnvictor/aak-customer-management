@@ -1,4 +1,20 @@
+@import "../../variables";
+
 h3 {
-    color: #13effb;
+    color: $black;
     font-weight: bold;
+}
+
+ion-title {
+    font-weight: bold;
+}
+
+.contact {
+    color: $orange;
+    margin-left: 5px;
+}
+
+ion-icon {
+    top: 1px;
+    position: relative;
 }

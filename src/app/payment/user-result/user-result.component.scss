@@ -1,9 +1,10 @@
 @import "../../../variables.scss";
 
 ion-card-title {
-    color: $blue;
     font-weight: bold;
     font-size: 14px;
+    color: $black;
+    font-weight: bold;
 }
 
 ion-card-subtitle {
@@ -13,4 +14,10 @@ ion-card-subtitle {
 .contact {
     font-size: 13px;
     color: $orange;
+}
+
+h3 {
+    margin: 30px 0 0 10px;
+    font-size: 16px;
+    color: $light-black;
 }

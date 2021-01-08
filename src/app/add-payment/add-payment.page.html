@@ -21,16 +21,16 @@
   
     <ion-card-content>
       <ion-item>
-        <ion-label position="stacked">
+        <ion-label position="floating" class="label">
           Payment date
         </ion-label>
-        <ion-datetime  placeholder="Select date" formControlName='paymentDate' display-timezone="utc"></ion-datetime>
+        <ion-datetime formControlName='paymentDate' display-timezone="utc"></ion-datetime>
       </ion-item>
       <ion-item>
-        <ion-label position="stacked">
+        <ion-label position="floating" class="label">
           Received by
         </ion-label>
-        <ion-select placeholder="Select name" interface='popover' formControlName='receivedBy'>
+        <ion-select interface='popover' formControlName='receivedBy'>
           <ion-select-option value='ARIVU'>ARIVU</ion-select-option>
           <ion-select-option value='ARASU'>ARASU</ion-select-option>
           <ion-select-option value='KARUNA'>KARUNA</ion-select-option>
