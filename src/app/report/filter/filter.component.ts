@@ -1,19 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
-import { ReportService } from '../report.service';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { ModalController } from "@ionic/angular";
+import { map, tap } from "rxjs/operators";
+import { LoaderService } from "src/app/services/loader.service";
+import { UserService } from "src/app/services/user.service";
+import { ReportService } from "../report.service";
 
 @Component({
-  selector: 'app-filter',
-  templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.scss'],
+  selector: "app-filter",
+  templateUrl: "./filter.component.html",
+  styleUrls: ["./filter.component.scss"],
 })
 export class FilterComponent implements OnInit {
-  currentYear: any = (new Date()).getFullYear();
+  currentYear: any = new Date().getFullYear();
   date: any = new Date().toISOString();
   filterForm: FormGroup;
 
-  constructor(private modalCtrl: ModalController, private formBuilder: FormBuilder, private reportService: ReportService) { }
+  constructor(
+    private modalCtrl: ModalController,
+    private formBuilder: FormBuilder,
+    private reportService: ReportService,
+    private userService: UserService,
+    private loader: LoaderService
+  ) {}
 
   ngOnInit() {
     this.initFilterForm();
@@ -21,12 +30,12 @@ export class FilterComponent implements OnInit {
 
   initFilterForm() {
     this.filterForm = this.formBuilder.group({
-      name: '',
-      location: '',
-      month: '',
-      year: ''
+      name: "",
+      location: "",
+      month: "",
+      year: "",
     });
-    if(this.reportService.filterFormValues) {
+    if (this.reportService.filterFormValues) {
       this.filterForm.setValue(this.reportService.filterFormValues);
     }
   }
@@ -37,16 +46,19 @@ export class FilterComponent implements OnInit {
 
   filter() {
     this.reportService.filterFormValues = this.filterForm.getRawValue();
-    this.closeModal();
+    this.userService
+      .getUsersWithFilter(this.reportService.filterFormValues)
+      .pipe(tap(() => this.loader.hideLoader()))
+      .subscribe((res) => this.closeModal(res));
   }
 
   clearField(formControlName: string) {
-    this.filterForm.get(formControlName).setValue('');
+    this.filterForm.get(formControlName).setValue("");
   }
 
-  closeModal() {
+  closeModal(users?) {
     this.modalCtrl.dismiss({
-      dismissed: true
+      users,
     });
   }
 }

@@ -1,34 +1,31 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {
   AngularFirestore,
   AngularFirestoreCollection,
   AngularFirestoreDocument,
   AngularFirestoreModule,
-} from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { async } from 'rxjs/internal/scheduler/async';
-import { User } from '../models/users.model';
+} from "@angular/fire/firestore";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { async } from "rxjs/internal/scheduler/async";
+import { User } from "../models/users.model";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
-
 export class UserService {
   users: Observable<User[]>;
   customersCollection: AngularFirestoreCollection<User>;
   selectedUserForPay: User;
 
   constructor(public afs: AngularFirestore) {
-    this.customersCollection = this.afs.collection('customers');
+    this.customersCollection = this.afs.collection("customers");
 
-    this.users = this.customersCollection.snapshotChanges().pipe(map(changes => {
-      return changes.map(a => {
-        const data = a.payload.doc.data() as User;
-        data.slNo = a.payload.doc.id;
-        return data;
-      });
-    }));
+    this.users = this.customersCollection.snapshotChanges().pipe(
+      map((changes) => {
+        return this.parserUserData(changes);
+      })
+    );
   }
 
   addUser(payload: User) {
@@ -44,10 +41,38 @@ export class UserService {
   }
 
   addPaymentToUser(docId, payload) {
-    return this.customersCollection.doc(docId).collection('payments').add(payload);
+    return this.customersCollection
+      .doc(docId)
+      .collection("payments")
+      .add(payload);
   }
 
   getPayments(userId) {
-    return this.afs.collection('customers').doc(userId).collection('payments').valueChanges();
+    return this.afs
+      .collection("customers")
+      .doc(userId)
+      .collection("payments")
+      .valueChanges();
+  }
+
+  getUsersWithFilter(filter) {
+    return this.afs
+      .collection("customers", (ref) =>
+        ref.where("customerName", "==", filter.name)
+      )
+      .snapshotChanges()
+      .pipe(
+        map((changes) => {
+          return this.parserUserData(changes);
+        })
+      );
+  }
+
+  parserUserData(changes) {
+    return changes.map((a) => {
+      const data = a.payload.doc.data() as User;
+      data.slNo = a.payload.doc.id;
+      return data;
+    });
   }
 }
